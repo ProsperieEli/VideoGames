@@ -1,15 +1,7 @@
-const express = require('express')
-const app = express()
+const { app } = require("./server")
+const port = process.env.PORT || 3000
 
 
-const { gamesOwned } = require('./games')
-
-app.use(cors())
-app.get('/gamesOwned', (req, res) => {
- 
-    res.json(gamesOwned);
-})
-
-app.get('/gamesOwned/:id', (req, res) => {
-    const titlesOwned = gamesOwned.find(game => gamesOwned.id === Number(req.params.id));
-});
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`)
+  })
