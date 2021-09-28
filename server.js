@@ -17,7 +17,9 @@ app.get('/gamesOwned', (req, res) => {
 })
 
 app.get('/gamesOwned/:id', (req, res) => {
-    const titlesOwned = gamesOwned.find(game => gamesOwned.id === Number(req.params.id));
+    const titlesOwned = gamesOwned.find(game => game.id === Number(req.params.id));
+
+    res.json(titlesOwned);
 });
 
 
